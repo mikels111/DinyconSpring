@@ -6,14 +6,18 @@ import java.util.List;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import reactor.core.publisher.Mono;
+
 
 public class MyUserDetails implements UserDetails {
+    private Mono<User> user;
     private String username;
-    public MyUserDetails(String username2) {
+    public MyUserDetails(Mono<User> user) {
+        this.user=user;
     }
     @Override
     public Collection getAuthorities() {
-        return List.of(new SimpleGrantedAuthority("ROLE_SENSEI"));
+        return List.of(new SimpleGrantedAuthority("admin"));
     }
     @Override
     public String getPassword() {
