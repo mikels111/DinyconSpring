@@ -28,12 +28,7 @@ public class JdbcSecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .usersByUsernameQuery("SELECT username, password, enabled from users where username = ?")
                 .authoritiesByUsernameQuery("select username, role from users where username=?");
     }
-
-    // @Bean
-    // public PasswordEncoder passwordEncoder() {
-    // return new BCryptPasswordEncoder();
-    // }
-
+    
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.antMatcher("/**").authorizeRequests()
