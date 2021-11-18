@@ -4,5 +4,6 @@
         <li> <a th:href="@{/about}">About</a></li>
         <li sec:authorize="hasRole('ADMIN')"><a th:href="@{/admin}">admin</a></li>
         <li sec:authorize="isAuthenticated()"><a th:href="@{/logout}">Log out</a></li>
+        <li sec:authorize="isAnonymous()"><a th:href="@{/login}">Log in</a></li>
      </ul>
 </nav>

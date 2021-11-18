@@ -36,12 +36,6 @@ public class JdbcSecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        // http.formLogin();
-
-        // http.authorizeRequests()
-        //     .anyRequest().authenticated().and()
-        //     .formLogin().permitAll().and()
-        //     .logout().permitAll();
         http.antMatcher("/**").authorizeRequests()
             .antMatchers("/admin").hasRole("ADMIN")
             .antMatchers("/about").permitAll().and()

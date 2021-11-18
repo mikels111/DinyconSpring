@@ -1,7 +1,6 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:th="http://www.thymeleaf.org" 
-      lang="es">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,21 +10,20 @@
 </head>
 
 <body>
-	<header th:insert="../fragments/header :: header"></header>
-    
+    <header th:insert="../fragments/header :: header"></header>
+
     <nav th:insert="../fragments/nav :: nav"></nav>
-    
+
     <div class="barra">
         <span class="esquina-izquierda"></span>
         <span class="relleno-barra"></span>
         <span class="esquina-derecha"></span>
     </div>
-    
-    <div sec:authorize="isAuthenticated()">
-        <h3>[[${#httpServletRequest.remoteUser}]]</h3>
-    </div>
+
+
     <div id="content">
-    	<div class="box" th:insert="__${content}__"></div>
+        <h3 sec:authorize="isAuthenticated()">[[${#httpServletRequest.remoteUser}]]</h3>
+        <div class="box" th:insert="__${content}__"></div>
     </div>
     <footer>
         <p>Mikel Seara | Spring</p>
