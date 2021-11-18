@@ -1,0 +1,6 @@
+<div>
+	<h2>Página de Administrador</h2>
+	<h3 th:inline="text">Welcome [[${#httpServletRequest.remoteUser}]]</h3>
+	<p th:text=${view}></p>
+	<p th:text="#{home.welcome}"></p>
+</div>

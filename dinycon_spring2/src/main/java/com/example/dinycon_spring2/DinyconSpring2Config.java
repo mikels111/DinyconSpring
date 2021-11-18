@@ -18,8 +18,8 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.server.SecurityWebFilterChain;
 
-import io.r2dbc.spi.ConnectionFactories;
-import io.r2dbc.spi.ConnectionFactory;
+// import io.r2dbc.spi.ConnectionFactories;
+// import io.r2dbc.spi.ConnectionFactory;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
@@ -54,19 +54,12 @@ public class DinyconSpring2Config<R2dbcEntityTemplate> extends WebSecurityConfig
                 .roles("USER", "ADMIN").build();
         UserDetails user2 = User.withUsername("user2").password("1234").roles("USER").build();
 
-        ConnectionFactory connectionFactory = ConnectionFactories
-                .get("r2dbcs:mysql://root:mikelS1234@127.0.0.1:3306/r2dbc?");
+        // ConnectionFactory connectionFactory = ConnectionFactories
+        //         .get("r2dbcs:mysql://root:mikelS1234@127.0.0.1:3306/r2dbc?");
                 
-        Mono<Connection> connectionMono = (Mono<Connection>) Mono.from(connectionFactory.create());
+        // Mono<Connection> connectionMono = (Mono<Connection>) Mono.from(connectionFactory.create());
 
-        R2dbcEntityTemplate template = new R2dbcEntityTemplate(connectionFactory);
-
-        Flux<User> all = template.select(Person.class)
-			.matching(query(where("firstname").is("John")
-				.and("lastname").in("Doe", "White"))
-			  .sort(by(desc("id"))))
-			.all();
-
+       
         return new MapReactiveUserDetailsService(user, admin, user2);
     }
 

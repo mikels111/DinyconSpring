@@ -17,6 +17,9 @@
 		<java.version>8</java.version>
 	</properties>
 	<dependencies>
+
+		
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-security</artifactId>
@@ -82,11 +85,11 @@
 
 
 		<!-- R2DBC -->
-		<dependency>
+		<!-- <dependency>
 			<groupId>dev.miku</groupId>
 			<artifactId>r2dbc-mysql</artifactId>
 			<version>0.8.2.RELEASE</version>
-		</dependency>
+		</dependency> -->
 
 	</dependencies>
 
