@@ -1,10 +1,13 @@
 package com.example.demo;
 
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.reactive.function.client.WebClient;
 @Controller
-public class DemoController {
+public class DemoController{
     @GetMapping("/")
     public String index(Model model) {
 		model.addAttribute("nombre","Inicio");
@@ -27,6 +30,8 @@ public class DemoController {
     }
     @GetMapping("/about")
     public String about(Model model) {
+
+
         model.addAttribute("nombre","About");
         model.addAttribute("content","../fragments/aboutContent");
         return "index";

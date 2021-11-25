@@ -1,28 +1,40 @@
-package com.example.demo;
+// package com.example.demo;
 
-import org.springframework.web.reactive.function.client.WebClient;
+// import org.springframework.http.HttpHeaders;
+// import org.springframework.http.MediaType;
+// import org.springframework.web.reactive.function.client.WebClient;
 
-import reactor.core.publisher.Flux;
-import reactor.core.publisher.Mono;
+// import reactor.core.publisher.Flux;
+// import reactor.core.publisher.Mono;
 
-public class EmployeeWebClient {
+// public class EmployeeWebClient {
 
-    WebClient client = WebClient.create("http://localhost:8080");
-    
-    public void consume() {
+//      WebClient webClient;
+//     // WebClient webClient = WebClient.builder().baseUrl("http://localhost:8080")
+//     //         .defaultHeader(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE).build();
 
-        Mono<Employee> employeeMono = client.get()
-            .uri("/employees/{id}", "1")
-            .retrieve()
-            .bodyToMono(Employee.class);
+//     public EmployeeWebClient(WebClient webClient){
+//         this.webClient=webClient;
+//     }
 
-        employeeMono.subscribe(System.out::println);
-        
-        Flux<Employee> employeeFlux = client.get()
-            .uri("/employees")
-            .retrieve()
-            .bodyToFlux(Employee.class);
-        
-        employeeFlux.subscribe(System.out::println);
-    }
-}
+//     public Flux<Employee> findAll() {
+//         return webClient.get()
+//         .uri("/employees")
+//         .retrieve()
+//         .bodyToFlux(Employee.class);
+//     }
+
+//     // public void consume() {
+
+//     //     Mono<Employee> employeeMono = client.get().uri("/employees/{id}", "1").retrieve().bodyToMono(Employee.class);
+
+//     //     employeeMono.subscribe(System.out::println);
+
+//     //     Flux<Employee> employeeFlux = client.get().uri("/employees").retrieve().bodyToFlux(Employee.class);
+
+//     //     employeeFlux.subscribe(System.out::println);
+
+//     //     Flux<Grupo> gruposFlux = client.get().uri("/grupos").retrieve().bodyToFlux(Grupo.class);
+//     //     gruposFlux.subscribe(System.out::println);
+//     // }
+// }
