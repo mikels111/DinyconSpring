@@ -9,17 +9,17 @@ import com.hazelcast.config.Config;
 import com.hazelcast.config.SerializationConfig;
 import com.hazelcast.core.Hazelcast;
 import com.hazelcast.core.HazelcastInstance;
-import com.hazelcast.internal.util.IterableUtil;
+// import com.hazelcast.internal.util.IterableUtil;
 import com.hazelcast.map.IMap;
 
 public class HelloWorld {
     public static void main(String[] args) {
-        SerializationConfig serializationConfig = new SerializationConfig();
-        serializationConfig.setAllowOverrideDefaultSerializers(true);
+        // SerializationConfig serializationConfig = new SerializationConfig();
+        // serializationConfig.setAllowOverrideDefaultSerializers(true);
 
         Config helloWorldConfig = new Config();
         helloWorldConfig.setClusterName("hello-world");
-        helloWorldConfig.setSerializationConfig(serializationConfig);
+        // helloWorldConfig.setSerializationConfig(serializationConfig);
 
         
         HazelcastInstance hz = Hazelcast.newHazelcastInstance(helloWorldConfig);
@@ -38,7 +38,7 @@ public class HelloWorld {
             }
         });
 
-        IMap<String, Customer> map = hz.getMap("my-distributed-map");
+        IMap<String, Customer> map = hz.getMap("Customer-map");
         map.put("1", new Customer("1","John"));
         map.put("2", new Customer("2","Mary"));
         map.put("3", new Customer("3","Jane"));

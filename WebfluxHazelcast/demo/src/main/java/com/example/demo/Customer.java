@@ -5,14 +5,18 @@ import java.io.Serializable;
 import lombok.Data;
 
 @Data
-public class Customer implements Serializable{
-
+public class Customer implements Serializable {
+    private static final long serialVersionUID = 2032749020590979350L;
     private String id;
     private String name;
 
-    public Customer(String id,String name) {
-        this.id=id;
-        this.name=name;
+    public Customer(String id, String name) {
+        this.id = id;
+        this.name = name;
+    }
+
+    public Customer() {
+
     }
 
     public String getId() {
@@ -29,6 +33,10 @@ public class Customer implements Serializable{
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public Object[] split(String string) {
+        return null;
     }
 
 }

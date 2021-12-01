@@ -8,6 +8,15 @@
     <title th:text=${nombre}></title>
     <link rel="stylesheet" th:href="@{/css/styles.css}">
     <link rel="icon" type="image/ico" th:href="@{/img/leaf.ico}">
+    <style>
+        td,
+        th {
+            border: 1px solid #999;
+            padding: 0.5rem;
+            text-align: left;
+        }
+    </style>
+
 </head>
 
 <body>
@@ -23,7 +32,11 @@
 
 
     <div id="content">
-        <div class="box" th:insert="__${content}__"></div>
+
+
+        <div class="box" th:insert="__${content}__">
+
+        </div>
     </div>
     <footer>
         <p>Mikel Seara | Spring</p>
