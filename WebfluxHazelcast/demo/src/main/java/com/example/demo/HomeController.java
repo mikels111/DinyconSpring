@@ -15,10 +15,14 @@ public class HomeController {
         // customers.subscribe(System.out::println);
         return Mono.just("index");
     }
-    @GetMapping("/")
+    @GetMapping("/createCustomer")
     public Mono<String> crearCustomer(Model model) {
         model.addAttribute("nombre", "Crear Customer");
-        model.addAttribute("content", "../fragments/customersContent.html");
+        model.addAttribute("content", "../fragments/addCustomersContent.html");
+        Customer customer = new Customer();
+        customer.setId("");
+        customer.setName("");
+        model.addAttribute("customer", customer);
         // customers.subscribe(System.out::println);
         return Mono.just("index");
     }

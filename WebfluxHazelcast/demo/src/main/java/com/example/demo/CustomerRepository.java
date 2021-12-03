@@ -42,6 +42,7 @@ public class CustomerRepository {
     public Flux<Customer> findAllCustomers(){
         // return Flux.fromIterable(customersMap.values());
         Map<String,Customer> mapa=client.getMap("Customer-map");
+        System.out.println("CUSTOMERS KEYS------------------------------>"+mapa.keySet());
         return Flux.fromIterable(mapa.values());
     }
 
