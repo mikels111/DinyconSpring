@@ -9,7 +9,6 @@ import com.hazelcast.core.Hazelcast;
 import com.hazelcast.core.HazelcastInstance;
 import com.hazelcast.map.IMap;
 import com.example.demo.Customer;
-import com.fasterxml.jackson.databind.SerializationConfig;
 
 public class HazelcastStart {
     public static void main(String[] args){
