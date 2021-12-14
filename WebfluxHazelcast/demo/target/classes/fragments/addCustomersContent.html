@@ -1,0 +1,41 @@
+<!-- https://www.baeldung.com/spring-mvc-form-tutorial -->
+<!-- <form action="#" th:action="@{/customers/formSaveCustomer}" th:object="${customer}" method="post" modelAttribute="customer">
+    <table>
+        <tr>
+            <td>
+                <p>Id: <input type="text" id="id"></p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p>Name: <input type="text" id="name"></p>
+            </td>
+        </tr>
+        <tr>
+            <td><input type="submit" value="Submit" /></td>
+        </tr>
+    </table>
+</form> -->
+<style>
+    td,
+    th {
+        border: 0px;
+    }
+</style>
+<form action="/customers/formSaveCustomer" method="post" th:object="${customer}">
+    <table>
+        <tr>
+            <td>
+                <p>Id: <input type="text" id="id" th:field="*{id}"></p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p>Name: <input type="text" id="name" th:field="*{name}"></p>
+            </td>
+        </tr>
+        <tr>
+            <td><input type="submit" value="Submit" /></td>
+        </tr>
+    </table>
+</form>

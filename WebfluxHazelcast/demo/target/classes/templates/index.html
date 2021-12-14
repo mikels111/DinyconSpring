@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title th:text=${nombre}></title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+    <link rel="icon" type="image/ico" th:href="@{/img/leaf.ico}">
+    <style>
+        table{
+            border-radius: 5px;
+        }
+        td,
+        th {
+            border: 1px solid #999;
+            padding: 0.5rem;
+            text-align: left;
+            border-radius: 5px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <header th:insert="../fragments/header :: header"></header>
+
+    <nav th:insert="../fragments/nav :: nav"></nav>
+
+    <div class="barra">
+        <span class="esquina-izquierda"></span>
+        <span class="relleno-barra"></span>
+        <span class="esquina-derecha"></span>
+    </div>
+
+
+    <div id="content">
+
+
+        <div class="box" th:insert="__${content}__">
+
+        </div>
+    </div>
+    <footer>
+        <p>Mikel Seara | Spring</p>
+    </footer>
+</body>
+
+</html>
