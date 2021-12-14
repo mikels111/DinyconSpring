@@ -1,0 +1,22 @@
+<!-- <ul th:each="customer : ${customers}">
+    <li th:text="${customer.name}">
+        <form th:action="@{'/customers/'+${customer.id}}" method="DELETE">
+            <input type="submit" value="Delete">
+        </form>
+    </li>
+</ul> -->
+<table style="border: solid 1px;">
+    <tr>
+        <th>id</th>
+        <th>nombre</th>
+    </tr>
+    <tr th:each="customer : ${customers}">
+        <td th:text="${customer.id}"></td>
+        <td th:text="${customer.name}"></td>
+        <td>
+            <form th:object="${customers}" th:method="delete" th:action="@{'/customers/'+${customer.id}}" >
+                <input type="submit" value="Delete">
+            </form>
+        </td>
+    </tr>
+</table>

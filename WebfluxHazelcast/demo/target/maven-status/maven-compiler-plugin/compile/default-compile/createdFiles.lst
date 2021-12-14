@@ -1,0 +1,8 @@
+com\example\demo\DemoApplication.class
+com\example\demo\CustomerRepository.class
+com\example\demo\CustomersWebClient.class
+hazelcast\HazelcastStart$1.class
+com\example\demo\Customer.class
+com\example\demo\HomeController.class
+hazelcast\HazelcastStart.class
+com\example\demo\CustomersController.class
