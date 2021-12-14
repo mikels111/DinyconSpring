@@ -6,6 +6,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.ReactiveUserDetailsService;
 import org.springframework.security.authentication.ReactiveAuthenticationManager;
 import org.springframework.security.authentication.ReactiveAuthenticationManagerResolver;
+import org.springframework.security.authentication.UserDetailsRepositoryReactiveAuthenticationManager;
 import org.springframework.security.config.annotation.method.configuration.EnableReactiveMethodSecurity;
 import org.springframework.security.config.annotation.web.reactive.EnableWebFluxSecurity;
 import org.springframework.security.config.web.server.SecurityWebFiltersOrder;
@@ -18,10 +19,10 @@ import reactor.core.publisher.Mono;
 
 @EnableWebFluxSecurity
 @EnableReactiveMethodSecurity
-public class SecurityConfiguration /*implements ReactiveAuthenticationManager*/{
+public class SecurityConfiguration{
 
-    @Autowired
-    private UserRepository userRepository;
+    // @Autowired
+    // private UserRepository userRepository;
 
     // @Autowired
     // private ReactiveAuthenticationManager authenticationManager;
@@ -29,25 +30,24 @@ public class SecurityConfiguration /*implements ReactiveAuthenticationManager*/{
     @Bean
     public SecurityWebFilterChain springSecurityFilterChain(ServerHttpSecurity http) {
         return http
+                .csrf().disable()
                 .authorizeExchange()
                 .pathMatchers("/**")
-                .authenticated()
-                .and()
-                .httpBasic()
-                .disable()
+                .authenticated().and()
+                .httpBasic().and()
                 .formLogin().and()
                 .build();
     }
 
+    // @Bean
+    // public ReactiveUserDetailsService userDetailsService() {
+    //     return (username) -> userRepository.findByUsername(username);
+    // }
     @Bean
-    public ReactiveUserDetailsService userDetailsService() {
-        return (username) -> userRepository.findByUsername(username);
+    ReactiveAuthenticationManager authenticationManager(UserService userService){
+        return new UserDetailsRepositoryReactiveAuthenticationManager(userService);
     }
 
-    // @Override
-    // public Mono<Authentication> authenticate(Authentication authentication) {
-    //     // TODO Auto-generated method stub
-    //     return null;
-    // }
+    
 
 }

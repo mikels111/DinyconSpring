@@ -8,17 +8,17 @@ import org.springframework.stereotype.Repository;
 import io.r2dbc.spi.Connection;
 import io.r2dbc.spi.ConnectionFactories;
 import io.r2dbc.spi.ConnectionFactory;
+import lombok.NoArgsConstructor;
 import reactor.core.publisher.Mono;
+import org.springframework.data.repository.reactive.ReactiveCrudRepository;
 
 @Repository
-public class UserRepository {
-    static ConnectionFactory connectionFactory = ConnectionFactories.get(
-            "r2dbcs:mysql://root:@localhost:3306/springdinycon?");
-    Mono<Connection> connectionMono = Mono.from(connectionFactory.create());
+public interface UserRepository extends ReactiveCrudRepository<MyUser,Integer>{
+    // static ConnectionFactory connectionFactory = ConnectionFactories.get(
+    //         "r2dbcs:mysql://root:@localhost:3306/springdinycon?");
+    // Mono<Connection> connectionMono = Mono.from(connectionFactory.create());
 
     // Creating a Mono using Project Reactor
 
-    public Mono<UserDetails> findByUsername(String username) {
-        return null;
-    }
+    public Mono<MyUser> findByUsername(String username);
 }
