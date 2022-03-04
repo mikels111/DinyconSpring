@@ -1,2 +1,2 @@
 # DinyconSpring
-Practica de Spring en Dinycon Sistemas
+Practica de Spring Framework en Dinycon Sistemas
